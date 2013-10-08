@@ -6,21 +6,64 @@
   <title>Layout and Panels</title>
   <!-- Latest compiled and minified CSS -->
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<div id="container">
-    <div id="left-panel" class="ui-layout-center pane">
-      <div class="ui-layout-north pane top-panel"></div>
-      <div class="ui-layout-south pane bottom-panel"></div>
+
+  <div id="outer-container">
+
+    <div class="ui-layout-west pane">
+      <div id="tabs">
+        <ul>
+          <li><a href="#tabs-1">A</a></li>
+          <li><a href="#tabs-2">B</a></li>
+          <li><a href="#tabs-3">C</a></li>
+        </ul>
+        <div id="tabs-1">
+          <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+        </div>
+        <div id="tabs-2">
+          <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+        </div>
+        <div id="tabs-3">
+          <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+          <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+        </div>
+      </div>
     </div>
 
-    <div id="right-panel" class="ui-layout-east">
-      <div class="ui-layout-north pane top-panel"></div>
-      <div class="ui-layout-south pane bottom-panel"></div>
+    <div class="ui-layout-center pane">
+
+      <div id="middle-container">
+
+        <div class="ui-layout-north pane top-panel">
+
+          <div id="top-container">
+            <div class="ui-layout-center pane">LEFT</div>
+            <div class="ui-layout-east pane">RIGHT</div>
+          </div>
+
+        </div>
+
+        <div class="ui-layout-center pane bottom-panel">
+
+          <div id="bottom-container">BOTTOM
+            <div class="ui-layout-center pane">LEFT</div>
+            <div class="ui-layout-east pane">RIGHT</div>
+          </div>
+
+        </div>
+
+
+      </div>
+
     </div>
+
+    <div class="ui-layout-east pane">East</div>
 
   </div>
+
 
   <script src="//codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
