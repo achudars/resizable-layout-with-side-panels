@@ -8,8 +8,8 @@ $(function() {
   var halfOfMiddleHeight = ($('#middle-container').height() / 2);
   
 
-  container.sizePane("west", 360);
-  container.sizePane("east", 360);
+  container.sizePane("west", 340);
+  container.sizePane("east", 340);
 
 
   middle.sizePane("north", halfOfMiddleHeight);
@@ -22,5 +22,5 @@ $(function() {
 
   // tabs
 
-  $( "#tabs" ).tabs();
+  $( ".tabs" ).tabs();
 });
