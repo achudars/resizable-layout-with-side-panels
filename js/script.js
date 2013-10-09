@@ -4,16 +4,15 @@ $(function() {
   // main panel init
   var container = $('#outer-container').layout({
   	west: {
-  		resizable : false
+  		resizable : false,
+  		initClosed : true
   	},
   	east: {
-  		resizable : false
+  		resizable : false,
+  		initClosed : true
   	}
   });
 
-  // by default make them closed
-  container.close("west");
-  container.close("east");
   // set default widths for left and right panels - 340px
   container.sizePane("west", 340);
   container.sizePane("east", 340);
