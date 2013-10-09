@@ -6,12 +6,12 @@ $(function() {
   	west: {
   		resizable : false,
   		initClosed : false,
-  		size: 340
+  		size: 350
   	},
   	east: {
   		resizable : false,
   		initClosed : false,
-  		size: 340
+  		size: 350
   	}
   });
   // middle container init
@@ -35,15 +35,19 @@ $(function() {
   // tabs
   var tabs = $( ".tabs" ).tabs();
 
+  tabs.find( ".ui-tabs-nav" ).sortable({
+      axis: "x",
+      stop: function() {
+        tabs.tabs( "refresh" );
+      }
+  });
   tabs.find(".ui-tabs-nav li").draggable({
   	handle: "a",
   	stack: "div",
   	opacity: 0.35, 
-  	revert: true,
-  	cursor:	'move',
   	start: function( event, ui ) {
+  		tabs.find(".ui-tabs-nav li").draggable({ revert: true });
   		var draggableIdParentClassName = $(this).parent();
-
   		if(draggableIdParentClassName.hasClass('left-drop')) {
   			$('.ui-layout-west').css({"z-index":"100"});
   			$('.ui-layout-east').css({"z-index":"99"});
@@ -51,8 +55,17 @@ $(function() {
   			$('.ui-layout-east').css({"z-index":"100"});
   			$('.ui-layout-west').css({"z-index":"99"});
   		}
+  	},
+  	drag: function ( event, ui ) {
+  		tabs.tabs( "refresh" );
+  		tabs.find(".ui-tabs-nav li").draggable({ revert: false });
+  	},
+  	stop: function ( event, ui ) {
+  		tabs.tabs( "refresh" );
+  		tabs.find(".ui-tabs-nav li").draggable({ revert: true });
   	}
   });
+
 
 
 tabs.find(".ui-tabs-nav").droppable({
@@ -62,6 +75,7 @@ tabs.find(".ui-tabs-nav").droppable({
         $(this).append(ui.draggable);
         // append the content of the icon
         $(this).parent().append($(draggableId));
+        tabs.find(".ui-tabs-nav li").draggable({ revert: true });
         tabs.tabs( "refresh" );
       }
   });
