@@ -5,12 +5,12 @@ $(function() {
   var container = $('#outer-container').layout({
   	west: {
   		resizable : false,
-  		initClosed : false,
+  		initClosed : true,
   		size: 350
   	},
   	east: {
   		resizable : false,
-  		initClosed : false,
+  		initClosed : true,
   		size: 350
   	}
   });

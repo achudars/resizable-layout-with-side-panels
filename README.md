@@ -13,3 +13,4 @@ Bugs
 ----
 
 * if a tab is dragged out, and one closes left or right panel, the tab with its contents disappears
+* containing too many tabs in one panel (left or right) results in ugly two rows of tabs
