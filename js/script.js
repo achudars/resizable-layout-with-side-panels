@@ -34,19 +34,19 @@ $(function() {
 
   // tabs
   var tabs = $( ".tabs" ).tabs();
+  var center = $( "#outer-container .ui-layout-center" );
 
   tabs.find( ".ui-tabs-nav" ).sortable({
-      axis: "x",
-      stop: function() {
-        tabs.tabs( "refresh" );
-      }
+  	axis: "x",
+  	stop: function() {
+  		tabs.tabs( "refresh" );
+  	}
   });
   tabs.find(".ui-tabs-nav li").draggable({
   	handle: "a",
   	stack: "div",
   	opacity: 0.35, 
   	start: function( event, ui ) {
-  		tabs.find(".ui-tabs-nav li").draggable({ revert: true });
   		var draggableIdParentClassName = $(this).parent();
   		if(draggableIdParentClassName.hasClass('left-drop')) {
   			$('.ui-layout-west').css({"z-index":"100"});
@@ -55,30 +55,51 @@ $(function() {
   			$('.ui-layout-east').css({"z-index":"100"});
   			$('.ui-layout-west').css({"z-index":"99"});
   		}
-  	},
-  	drag: function ( event, ui ) {
-  		tabs.tabs( "refresh" );
-  		tabs.find(".ui-tabs-nav li").draggable({ revert: false });
-  	},
-  	stop: function ( event, ui ) {
-  		tabs.tabs( "refresh" );
   		tabs.find(".ui-tabs-nav li").draggable({ revert: true });
+  		$(ui.draggable).css({"top":"","left":""});
+		tabs.tabs( "refresh" );
   	}
   });
 
 
 
 tabs.find(".ui-tabs-nav").droppable({
+	hoverClass: "ui-state-active",
   	drop: function( event, ui ) {
-        var draggableId = ui.draggable.find('a').attr('href');
-        // append the icon/tab
-        $(this).append(ui.draggable);
-        // append the content of the icon
-        $(this).parent().append($(draggableId));
-        tabs.find(".ui-tabs-nav li").draggable({ revert: true });
-        tabs.tabs( "refresh" );
-      }
-  });
+  		var draggableId = ui.draggable.find('a').attr('href');
+		//tabs.find(".ui-tabs-nav li").draggable({ revert: false });
+		// append the icon/tab
+		$(this).append(ui.draggable);
+		
+		// append the content of the icon
+		$(this).parent().append($(draggableId));
+		$(ui.draggable).css({"top":"","left":""});
+		tabs.tabs( "refresh" );
+		
+	},
+	out: function ( event, ui ) {
+		tabs.find(".ui-tabs-nav li").draggable({ revert: false });
+		$(ui.draggable).css({"top":"","left":""});
+		tabs.tabs( "refresh" );
+		
+	}
+});
+
+center.droppable({
+	hoverClass: "ui-state-active",
+	over: function ( event, ui ) {
+		tabs.find(".ui-tabs-nav li").draggable({ revert: false });
+		//$(ui.draggable).css({"top":"","left":""});
+		tabs.tabs( "refresh" );
+		
+	},
+	out: function ( event, ui ) {
+		tabs.find(".ui-tabs-nav li").draggable({ revert: false });
+		$(ui.draggable).css({"top":"","left":""});
+		tabs.tabs( "refresh" );
+		
+	}
+});
 
 
 
