@@ -5,32 +5,32 @@ $(function() {
   var container = $('#outer-container').layout({
   	west: {
   		resizable : false,
-  		initClosed : true
+  		initClosed : true,
+  		size: 340
   	},
   	east: {
   		resizable : false,
-  		initClosed : true
+  		initClosed : true,
+  		size: 340
   	}
   });
-
-  // set default widths for left and right panels - 340px
-  container.sizePane("west", 340);
-  container.sizePane("east", 340);
-
   // middle container init
-  var middle = $('#middle-container').layout();
-  var halfOfMiddleHeight = ($('#middle-container').height() / 2);
-  middle.sizePane("north", halfOfMiddleHeight);
-
+  var middle = $('#middle-container').layout({
+  	north: {
+  		size: "50%"
+  	}
+  });
   // 4 up view init
-  var top = $('#top-container').layout();
-  var bottom = $('#bottom-container').layout();
-  var halfOfTopWidth = ($('#top-container').width() / 2);
-
-  top.sizePane("east", halfOfTopWidth);
-  bottom.sizePane("east", halfOfTopWidth);
-
-
+  var top = $('#top-container').layout({
+  	east: {
+  		size: "50%"
+  	}
+  });
+  var bottom = $('#bottom-container').layout({
+  	east: {
+  		size: "50%"
+  	}
+  });
 
   // tabs
   var tabs = $( ".tabs" ).tabs();
