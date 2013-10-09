@@ -22,5 +22,25 @@ $(function() {
 
   // tabs
 
-  $( ".tabs" ).tabs();
+  var tabs = $( ".tabs" ).tabs();
+
+  tabs.find(".ui-tabs-nav li").draggable({
+  	handle: "a",
+  	stack: "div",
+  	opacity: 0.35, 
+  	revert: true,
+  	cursor:	'move'
+  });
+
+
+tabs.find(".ui-tabs-nav").droppable({
+  	drop: function( event, ui ) {
+        var draggableId = ui.draggable.attr("id");
+        $(this).append(ui.draggable);
+        tabs.tabs( "refresh" );
+      }
+  });
+
+
+
 });
