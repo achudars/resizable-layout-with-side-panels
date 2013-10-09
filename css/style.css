@@ -62,8 +62,3 @@ body {
 .ui-widget-content {
 	height: 100%;
 }
-
-
-.tabs .ui-tabs-nav li {
-	z-index: 9999 !important;
-}
