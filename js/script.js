@@ -36,12 +36,6 @@ $(function() {
   var tabs = $( ".tabs" ).tabs();
   var center = $( "#outer-container .ui-layout-center" );
 
-  tabs.find( ".ui-tabs-nav" ).sortable({
-  	axis: "x",
-  	stop: function() {
-  		tabs.tabs( "refresh" );
-  	}
-  });
   tabs.find(".ui-tabs-nav li").draggable({
   	handle: "a",
   	stack: "div",
@@ -56,8 +50,13 @@ $(function() {
   			$('.ui-layout-west').css({"z-index":"99"});
   		}
   		tabs.find(".ui-tabs-nav li").draggable({ revert: true });
-  		$(ui.draggable).css({"top":"","left":""});
-		tabs.tabs( "refresh" );
+  	},
+  	stop: function() {
+  		tabs.find( ".ui-tabs-nav" ).sortable({
+		  	stop: function() {
+		  		tabs.tabs( "refresh" );
+		  	}
+		  });
   	}
   });
 
@@ -67,37 +66,31 @@ tabs.find(".ui-tabs-nav").droppable({
 	hoverClass: "ui-state-active",
   	drop: function( event, ui ) {
   		var draggableId = ui.draggable.find('a').attr('href');
-		//tabs.find(".ui-tabs-nav li").draggable({ revert: false });
 		// append the icon/tab
 		$(this).append(ui.draggable);
-		
 		// append the content of the icon
 		$(this).parent().append($(draggableId));
 		$(ui.draggable).css({"top":"","left":""});
-		tabs.tabs( "refresh" );
-		
+		//tabs.tabs( "refresh" );
 	},
 	out: function ( event, ui ) {
 		tabs.find(".ui-tabs-nav li").draggable({ revert: false });
 		$(ui.draggable).css({"top":"","left":""});
-		tabs.tabs( "refresh" );
-		
+		//tabs.tabs( "refresh" );
 	}
 });
 
 center.droppable({
 	hoverClass: "ui-state-active",
 	over: function ( event, ui ) {
+		// this is important logic
 		tabs.find(".ui-tabs-nav li").draggable({ revert: false });
-		//$(ui.draggable).css({"top":"","left":""});
-		tabs.tabs( "refresh" );
-		
+	},
+  	drop: function ( event, ui ) {
+		$(ui.draggable).css({"position":"absolute"});
 	},
 	out: function ( event, ui ) {
-		tabs.find(".ui-tabs-nav li").draggable({ revert: false });
-		$(ui.draggable).css({"top":"","left":""});
-		tabs.tabs( "refresh" );
-		
+		$(ui.draggable).css({"position":"relative"});
 	}
 });
 
