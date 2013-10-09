@@ -5,12 +5,12 @@ $(function() {
   var container = $('#outer-container').layout({
   	west: {
   		resizable : false,
-  		initClosed : true,
+  		initClosed : false,
   		size: 340
   	},
   	east: {
   		resizable : false,
-  		initClosed : true,
+  		initClosed : false,
   		size: 340
   	}
   });
@@ -41,8 +41,9 @@ $(function() {
   	opacity: 0.35, 
   	revert: true,
   	cursor:	'move',
-  	start: function( event, ui) {
+  	start: function( event, ui ) {
   		var draggableIdParentClassName = $(this).parent();
+
   		if(draggableIdParentClassName.hasClass('left-drop')) {
   			$('.ui-layout-west').css({"z-index":"100"});
   			$('.ui-layout-east').css({"z-index":"99"});
@@ -56,8 +57,11 @@ $(function() {
 
 tabs.find(".ui-tabs-nav").droppable({
   	drop: function( event, ui ) {
-        var draggableId = ui.draggable.attr("id");
+        var draggableId = ui.draggable.find('a').attr('href');
+        // append the icon/tab
         $(this).append(ui.draggable);
+        // append the content of the icon
+        $(this).parent().append($(draggableId));
         tabs.tabs( "refresh" );
       }
   });
