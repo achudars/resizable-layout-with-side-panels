@@ -7,9 +7,12 @@ $(function() {
 
   var halfOfMiddleHeight = ($('#middle-container').height() / 2);
   
-
+  // set default widths for left and right panels - 340px
   container.sizePane("west", 340);
   container.sizePane("east", 340);
+  // by default make them closed
+  container.close("west");
+  container.close("east");
 
 
   middle.sizePane("north", halfOfMiddleHeight);
