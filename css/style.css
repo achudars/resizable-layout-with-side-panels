@@ -63,6 +63,7 @@ body {
 	height: 100%;
 }
 
-.ui-layout-east {
-	z-index: 10  !important;
+
+.tabs .ui-tabs-nav li {
+	z-index: 9999 !important;
 }

@@ -29,7 +29,39 @@ $(function() {
   	stack: "div",
   	opacity: 0.35, 
   	revert: true,
-  	cursor:	'move'
+  	cursor:	'move',
+  	start: function( event, ui) {
+  		var draggableIdParentClassName = $(this).parent();
+  		if(draggableIdParentClassName.hasClass('left-drop')) {
+  			$('.ui-layout-west').css({"z-index":"100"});
+  			$('.ui-layout-east').css({"z-index":"99"});
+  			console.log("WEST z-index: " + $('.ui-layout-west').css("z-index"));
+  			console.log("EAST z-index: " + $('.ui-layout-east').css("z-index"));
+  		} else if (draggableIdParentClassName.hasClass('right-drop')) {
+  			$('.ui-layout-east').css({"z-index":"100"});
+  			$('.ui-layout-west').css({"z-index":"99"});
+  			console.log("WEST z-index: " + $('.ui-layout-west').css("z-index"));
+  			console.log("EAST z-index: " + $('.ui-layout-east').css("z-index"));
+  		}
+  		
+  	},
+  	stop: function( event, ui) {
+  		var draggableIdParentClassName = $(this).parent();
+  		if(draggableIdParentClassName.hasClass('left-drop')) {
+  			$('.ui-layout-west').css({"z-index":"100"});
+  			$('.ui-layout-east').css({"z-index":"99"});
+  			console.log("FROM LEFT. LEFT SHOULD BE ON TOP");
+  			console.log("WEST z-index: " + $('.ui-layout-west').css("z-index"));
+  			console.log("EAST z-index: " + $('.ui-layout-east').css("z-index"));
+  		} else if (draggableIdParentClassName.hasClass('right-drop')) {
+  			$('.ui-layout-east').css({"z-index":"100"});
+  			$('.ui-layout-west').css({"z-index":"99"});
+  			console.log("FROM RIGHT. RIGHT SHOULD BE ON TOP");
+  			console.log("WEST z-index: " + $('.ui-layout-west').css("z-index"));
+  			console.log("EAST z-index: " + $('.ui-layout-east').css("z-index"));
+  		}
+  		
+  	}
   });
 
 
