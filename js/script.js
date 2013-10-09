@@ -1,30 +1,39 @@
 $(function() {
   // resizable panels
-  var container = $('#outer-container').layout();
-  var middle = $('#middle-container').layout();
-  var top = $('#top-container').layout();
-  var bottom = $('#bottom-container').layout();
 
-  var halfOfMiddleHeight = ($('#middle-container').height() / 2);
-  
-  // set default widths for left and right panels - 340px
-  container.sizePane("west", 340);
-  container.sizePane("east", 340);
+  // main panel init
+  var container = $('#outer-container').layout({
+  	west: {
+  		resizable : false
+  	},
+  	east: {
+  		resizable : false
+  	}
+  });
+
   // by default make them closed
   container.close("west");
   container.close("east");
+  // set default widths for left and right panels - 340px
+  container.sizePane("west", 340);
+  container.sizePane("east", 340);
 
-
+  // middle container init
+  var middle = $('#middle-container').layout();
+  var halfOfMiddleHeight = ($('#middle-container').height() / 2);
   middle.sizePane("north", halfOfMiddleHeight);
-  
+
+  // 4 up view init
+  var top = $('#top-container').layout();
+  var bottom = $('#bottom-container').layout();
   var halfOfTopWidth = ($('#top-container').width() / 2);
 
   top.sizePane("east", halfOfTopWidth);
   bottom.sizePane("east", halfOfTopWidth);
 
 
-  // tabs
 
+  // tabs
   var tabs = $( ".tabs" ).tabs();
 
   tabs.find(".ui-tabs-nav li").draggable({
