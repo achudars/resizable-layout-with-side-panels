@@ -62,7 +62,11 @@ body {
 .ui-widget-content {
 	height: 100%;
 }
-
-.ui-tabs, .tabs li a:hover, .tabs li a:active {
+li {
+	border: none !important;
+	outline: none !important;
+}
+.ui-tabs, .tabs li a:hover, .tabs li a {
 	cursor: move !important;
+	
 }

@@ -87,7 +87,20 @@ center.droppable({
 		tabs.find(".ui-tabs-nav li").draggable({ revert: false });
 	},
   	drop: function ( event, ui ) {
+  		var draggableId = ui.draggable.find('a').attr('href');
+  		$(this).parent().append($(draggableId));
 		$(ui.draggable).css({"position":"absolute"});
+		$(draggableId).appendTo(ui.draggable).css({
+			"position":"absolute",
+			"display":"",
+			"width":"340px",
+			"height":"340px",
+			"top":"100%",
+			"background":"#FFF",
+			"box-shadow":"rgba(34, 34, 34, .5) 10px 10px 10px -5px"
+		});
+		$(draggableId).draggable({ handle: ui.draggable });
+		
 	},
 	out: function ( event, ui ) {
 		$(ui.draggable).css({"position":"relative"});
