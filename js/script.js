@@ -6,14 +6,18 @@ $(function() {
   	west: {
   		resizable : false,
   		initClosed : true,
-  		size: 350
+  		size: 350,
+  		showOverflowOnHover: true
   	},
   	east: {
   		resizable : false,
   		initClosed : true,
-  		size: 350
+  		size: 350,
+  		showOverflowOnHover: true
   	}
   });
+container.allowOverflow("north");
+
   // middle container init
   var middle = $('#middle-container').layout({
   	north: {
