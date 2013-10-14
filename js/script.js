@@ -1,11 +1,38 @@
 $(function() {
+
+
+/*jQuery.fn.cleanWhitespace = function() {
+    textNodes = this.contents().filter(
+
+    function() {
+        return (this.nodeType == 3 && !/\S/.test(this.nodeValue));
+    }).remove();
+    return this;
+}
+jQuery("ul#list").cleanWhitespace();*/
+jQuery("input#next").click(function() {
+	console.log("NEXT");
+    jQuery(".left-drop").append(jQuery(".left-drop li:first-child"));
+});
+
+jQuery("input#prev").click(function() {
+	console.log("PREV");
+    jQuery(".left-drop").prepend(jQuery(".left-drop li:last-child"));
+});
+
+jQuery("li").click(function(){ 
+    jQuery(this).siblings().removeClass("selected");
+    jQuery(this).addClass("selected");
+});
+
+
   // resizable panels
 
   // main panel init
   var container = $('#outer-container').layout({
   	west: {
   		resizable : false,
-  		initClosed : true,
+  		initClosed : false,
   		size: 350,
   		showOverflowOnHover: true
   	},

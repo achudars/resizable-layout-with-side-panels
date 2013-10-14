@@ -70,3 +70,20 @@ li {
 	cursor: move !important;
 	
 }
+.ui-tabs-nav {
+	padding: .2em .2em 0;
+	height: 40px;
+	width: 265px;
+	overflow: hidden;
+	display: inline-block;
+}
+.ui-tabs-nav li {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	float: none !important;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+	margin: 0;
+	padding: 0;
+}
