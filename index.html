@@ -6,7 +6,7 @@
   <title>Layout and Panels</title>
   <!-- Latest compiled and minified CSS -->
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -15,27 +15,21 @@
 
     <div class="ui-layout-west pane">
       <div class="tabs">
-      <input type="button" id="prev" value="<" />
-        <ul class="left-drop">
-        
-          <li><a href="#tabs-1">A</a></li>
-          <li><a href="#tabs-2">B</a></li>
-          <li><a href="#tabs-3">C</a></li>
-          <li><a href="#tabs-4">D</a></li>
-          <li><a href="#tabs-5">E</a></li>
-          <li><a href="#tabs-6">F</a></li>
-          <li><a href="#tabs-7">G</a></li>
-          <li><a href="#tabs-8">H</a></li>
-          <li><a href="#tabs-1">A</a></li>
-          <li><a href="#tabs-2">B</a></li>
-          <li><a href="#tabs-3">C</a></li>
-          <li><a href="#tabs-4">D</a></li>
-          <li><a href="#tabs-5">E</a></li>
+        <div class="tab-section">
+          <input type="button" id="prev" value="<" />
+          <ul class="left-drop">
           
-        </ul>
-        <input type="button" id="next"value=">" />
+            <li><a href="#tabs-1">A</a></li>
+            <li><a href="#tabs-2">B</a></li>
+            <li><a href="#tabs-3">C</a></li>
+            
+          </ul>
+          <input type="button" id="next"value=">" />
+        </div>
+
         <div id="tabs-1">
           <p>Content for A</p>
+          <input type="checkbox" id="left-pin" />
         </div>
         <div id="tabs-2">
           <p>Content for B</p>
@@ -76,14 +70,13 @@
     <div class="ui-layout-east pane">
       <div class="tabs">
         <ul class="right-drop">
-          <li><a href="#tabs-1">A</a></li>
-          <li><a href="#tabs-2">B</a></li>
-          <li><a href="#tabs-3">C</a></li>
+
           <li><a href="#tabs-4">D</a></li>
           <li><a href="#tabs-5">E</a></li>
           <li><a href="#tabs-6">F</a></li>
           <li><a href="#tabs-7">G</a></li>
           <li><a href="#tabs-8">H</a></li>
+
         </ul>
         <div id="tabs-4">
           <p>Content for D</p>
