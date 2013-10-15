@@ -53,15 +53,18 @@ body {
 	border: 5px solid #191D24;
 	background: #D8D4C6;
 }
-
-/* STYLE THIS TO CHNAGE THE HANDLE */
-.ui-layout-toggler {
-	background-color: white;
+.tabs {
+	height:100%;
 }
 
-.ui-widget-content {
-	height: 100%;
 
+.ui-tabs-panel {
+	bottom: 0;
+	position: absolute;
+	top: 3em;
+	left: 0;
+	right: 0;
+	border: 3px solid purple;
 }
 li {
 	border: none !important;
@@ -102,7 +105,10 @@ li {
 	-webkit-padding-start: 0px !important;
 }
 
-
+/* STYLE THIS TO CHANGE THE HANDLE */
+.ui-layout-toggler {
+	background-color: white;
+}
 .left-toggler {
 	background: red;
 	width: 10px !important;
@@ -114,6 +120,7 @@ li {
 	width: 15px !important;
 
 }
+/* TAB TRAVERSE BUTTONS */
 #prev, #next {
 	width: 3em;
 	height: 3em;
@@ -130,7 +137,7 @@ li {
 	height: 3em;
 	background: orange;
 }
-
+/* DRAGGED OUT CONTENT */
 .dragged-out-content {
 	position:absolute;
 	display:"";
