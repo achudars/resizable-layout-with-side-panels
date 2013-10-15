@@ -61,6 +61,7 @@ body {
 
 .ui-widget-content {
 	height: 100%;
+
 }
 li {
 	border: none !important;
@@ -71,15 +72,25 @@ li {
 	
 }
 .ui-tabs-nav {
-	padding: .2em .2em 0;
-	height: 40px;
-	width: 265px;
+	height: 3em;
 	overflow: hidden;
 	display: inline-block;
+	border: 2px solid teal;
+	text-align: left;
+	position: absolute;
+	left: 3em;
+	right: 3em;
 }
 .ui-tabs-nav li {
-	width: 30px;
-	height: 30px;
+	-webkit-transform: translateX(-3em);
+}
+.ui-tabs-nav li, .ui-tabs-nav li a {
+	text-align: center;
+	margin: -2px !important;
+	padding: 0 !important;
+	background: blue;
+	width: 3em;
+	height: 3em;
 	display: inline-block;
 }
 .ui-tabs .ui-tabs-nav li.ui-tabs-active, .ui-tabs .ui-tabs-nav li {
@@ -103,7 +114,28 @@ li {
 	width: 15px !important;
 
 }
-
+#prev, #next {
+	width: 3em;
+	height: 3em;
+	position: absolute;
+	top: 0;
+}
+#prev {	
+	left: 0;
+}
+#next {
+	right: 0;
+}
 .tab-section {
+	height: 3em;
 	background: orange;
+}
+
+.dragged-out-content {
+	position:absolute;
+	display:"";
+	width:340px;
+	height:340px;
+	background:#FFF;
+	box-shadow:rgba(34, 34, 34, .5) 10px 10px 10px -5px;
 }

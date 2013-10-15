@@ -93,12 +93,11 @@ $(function() {
 		// append the content of the icon
 		$(this).parent().append($(draggableId));
 		$(ui.draggable).css({"top":"","left":""});
-		//tabs.tabs( "refresh" );
+		$(draggableId).removeClass('dragged-out-content');
 	},
 	out: function ( event, ui ) {
 		tabs.find(".ui-tabs-nav li").draggable({ revert: false });
 		$(ui.draggable).css({"top":"","left":""});
-		//tabs.tabs( "refresh" );
 	}
 });
 
@@ -115,14 +114,7 @@ $(function() {
 		// append the content of the icon
 		console.log(draggableId);
 		$(ui.draggable).css({"position":"absolute"});
-		$(draggableId).appendTo(ui.draggable).css({
-			"position":"absolute",
-			"display":"",
-			"width":"340px",
-			"height":"340px",
-			"background":"#FFF",
-			"box-shadow":"rgba(34, 34, 34, .5) 10px 10px 10px -5px"
-		});
+		$(draggableId).appendTo(ui.draggable).addClass('dragged-out-content');
 		$(draggableId).draggable({ handle: ui.draggable });
 		
 	},
