@@ -57,21 +57,22 @@ $(function() {
   // tabs
   var tabs = $( ".tabs" ).tabs();
   var center = $( "#outer-container .ui-layout-center" );
-
+  // make tabs draggable
   tabs.find(".ui-tabs-nav li").draggable({
-  	handle: "a",
+    handle: "a",
   	stack: "div",
-  	opacity: 0.35, 
+  	opacity: 0.8,
+  	revert: false, 
   	start: function( event, ui ) {
   		var draggableIdParentClassName = $(this).parent();
   		if(draggableIdParentClassName.hasClass('left-drop')) {
-  			$('.ui-layout-west').css({"z-index":"100"});
+  			$('.ui-layout-west').css({"z-index":"1000"});
   			$('.ui-layout-east').css({"z-index":"99"});
   		} else if (draggableIdParentClassName.hasClass('right-drop')) {
-  			$('.ui-layout-east').css({"z-index":"100"});
+  			$('.ui-layout-east').css({"z-index":"1000"});
   			$('.ui-layout-west').css({"z-index":"99"});
-  		}
-  		tabs.find(".ui-tabs-nav li").draggable({ revert: true });
+  		};
+  		tabs.find(".ui-tabs-nav li").draggable({ revert: false });
   	},
   	stop: function() {
   		tabs.find( ".ui-tabs-nav" ).sortable({
@@ -79,6 +80,7 @@ $(function() {
   				tabs.tabs( "refresh" );
   			}
   		});
+
   	}
   });
 
@@ -110,9 +112,10 @@ $(function() {
 	drop: function ( event, ui ) {
 		var draggableId = ui.draggable.find('a').attr('href');
 		// append the icon/tab
-		$(this).parent().append($(draggableId));
+		$("body").append(ui.draggable);
 		// append the content of the icon
-		console.log(draggableId);
+		$("body").append($(draggableId));
+
 		$(ui.draggable).css({"position":"absolute"});
 		$(draggableId).appendTo(ui.draggable).addClass('dragged-out-content');
 		$(draggableId).draggable({ handle: ui.draggable });

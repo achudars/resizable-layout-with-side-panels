@@ -76,7 +76,7 @@ li {
 }
 .ui-tabs-nav {
 	height: 3em;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	display: inline-block;
 	border: 2px solid teal;
 	text-align: left;
@@ -140,9 +140,13 @@ li {
 /* DRAGGED OUT CONTENT */
 .dragged-out-content {
 	position:absolute;
-	display:"";
+	display:  block !important;
 	width:340px;
 	height:340px;
 	background:#FFF;
 	box-shadow:rgba(34, 34, 34, .5) 10px 10px 10px -5px;
+}
+
+.on-top {
+	background: lime
 }
