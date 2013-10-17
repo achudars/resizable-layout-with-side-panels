@@ -23,8 +23,7 @@ $(function() {
   	west: {
   		resizable : true,
   		initClosed : false,
-  		size: 350,
-  		togglerClass: "left-toggler"
+  		size: 350
   	},
   	east: {
   		resizable : false,

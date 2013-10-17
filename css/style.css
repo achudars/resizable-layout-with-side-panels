@@ -74,30 +74,45 @@ li {
 	
 }
 .ui-tabs-nav {
-	height: 3em;
-	/*overflow: hidden;*/
-	display: inline-block;
 	text-align: left;
-	position: absolute;
-	left: 3.3em;
-	right: 3em;
+	margin-left: 3.2em;
+	margin-right: 3em;
 }
 .ui-tabs-nav li {
 	-webkit-transform: translateX(-3em);
 }
-.ui-tabs-nav li, .ui-tabs-nav li a {
+.ui-tabs-nav li {
 	text-align: center;
-	margin: -2px !important;
-	padding: 0 !important;
-	background: blue;
 	width: 3em;
 	height: 3em;
+	background: #FFF;
 	display: inline-block;
+	text-decoration: none;
+	line-height: 3em;
 }
+
 .ui-tabs .ui-tabs-nav li.ui-tabs-active, .ui-tabs .ui-tabs-nav li {
 	margin: 0;
 	padding: 0;
 	outline: none;
+}
+.ui-corner-top {
+	width: 3em;
+	height: 3em;
+	background: #FFF;
+	line-height: 0em;
+	text-align: center;
+	list-style: none;
+}
+.ui-tabs-anchor {
+	width: 100%;
+	height: 100%;
+	background: yellow;
+	line-height: 3em;
+	display: inline-block;
+	outline: none !important;
+	text-decoration: none;
+	
 }
 .left-drop .ui-tabs-nav .ui-helper-reset .ui-helper-clearfix .ui-widget-header .ui-corner-all .ui-droppable {
 	-webkit-padding-start: 0px !important;
@@ -106,19 +121,8 @@ li {
 /* STYLE THIS TO CHANGE THE HANDLE */
 .ui-layout-toggler {
 	background-color: white;
-	left: 9px !important;
 }
-.left-toggler {
-	background: red;
-	width: 10px !important;
-	border-top-right-radius: 10px !important;
-	border-bottom-right-radius: 10px !important;
-	display: inline-block;
-}
-.ui-layout-resizer {
-	width: 15px !important;
 
-}
 /* TAB TRAVERSE BUTTONS */
 #prev, #next {
 	width: 3em;
@@ -139,10 +143,12 @@ li {
 /* DRAGGED OUT CONTENT */
 .dragged-out-content {
 	position:absolute;
+	line-height: 3em;
 	display:  block !important;
 	width:340px;
 	height:340px;
 	background:#FFF;
+	color: #222;
 	box-shadow:rgba(34, 34, 34, .5) 10px 10px 10px -5px;
 }
 
