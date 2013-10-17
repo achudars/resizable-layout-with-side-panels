@@ -1,12 +1,18 @@
 $(function() {
 
-	jQuery("input#next").click(function() {
-		console.log("NEXT");
+	jQuery("input#next-left").click(function() {
 		jQuery(".left-drop").append(jQuery(".left-drop li:first-child"));
 	});
 
-	jQuery("input#prev").click(function() {
-		console.log("PREV");
+	jQuery("input#prev-left").click(function() {
+		jQuery(".left-drop").prepend(jQuery(".left-drop li:last-child"));
+	});
+
+	jQuery("input#next-right").click(function() {
+		jQuery(".left-drop").append(jQuery(".left-drop li:first-child"));
+	});
+
+	jQuery("input#prev-right").click(function() {
 		jQuery(".left-drop").prepend(jQuery(".left-drop li:last-child"));
 	});
 
@@ -27,7 +33,7 @@ $(function() {
   	},
   	east: {
   		resizable : false,
-  		initClosed : true,
+  		initClosed : false,
   		size: 350,
   		showOverflowOnHover: true
   	}
@@ -89,20 +95,17 @@ $(function() {
   	hoverClass: "ui-state-active",
   	drop: function( event, ui ) {
   		var draggableId = ui.draggable.find('a').attr('href');
-		// append the icon/tab
-		$(this).append(ui.draggable);
-		// append the content of the icon
-		$(this).parent().append($(draggableId));
-		$(ui.draggable).css({"top":"","left":""});
-		$(draggableId).removeClass('dragged-out-content');
-	},
-	out: function ( event, ui ) {
-		tabs.find(".ui-tabs-nav li").draggable({ revert: false });
-		$(ui.draggable).css({"top":"","left":""});
-	}
+			// append the icon/tab
+			$(this).append(ui.draggable);
+			// append the content of the icon
+			$(this).parent().parent().append($(draggableId));
+			$(ui.draggable).css({"top":"0","left":"0"});
+			$(draggableId).removeClass('dragged-out-content');
+			tabs.tabs( "refresh" );
+		}
 });
 
-  center.droppable({
+/*  center.droppable({
   	hoverClass: "ui-state-active",
   	over: function ( event, ui ) {
 		// this is important logic
@@ -110,20 +113,17 @@ $(function() {
 	},
 	drop: function ( event, ui ) {
 		var draggableId = ui.draggable.find('a').attr('href');
-		// append the icon/tab
+		// append the icon/tab to the body
 		$("body").append(ui.draggable);
-		// append the content of the icon
-		$("body").append($(draggableId));
+		// append the content of the icon to the body
+		//$("body").append($(draggableId));
 
-		$(ui.draggable).css({"position":"absolute"});
-		$(draggableId).appendTo(ui.draggable).addClass('dragged-out-content');
 		$(draggableId).draggable({ handle: ui.draggable });
+		$(draggableId).appendTo(ui.draggable).addClass('dragged-out-content');
 		
-	},
-	out: function ( event, ui ) {
-		$(ui.draggable).css({"position":"relative"});
+		
 	}
-});
+});*/
 
 
 
