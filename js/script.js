@@ -8,19 +8,19 @@ $(function() {
     jQuery(".left-drop").prepend(jQuery(".left-drop li:last-child"));
   });
 
-  jQuery("input#next-right").click(function() {
-    jQuery(".right-drop").append(jQuery(".right-drop li:first-child"));
-  });
+	jQuery("input#next-right").click(function() {
+		jQuery(".right-drop").append(jQuery(".right-drop li:first-child"));
+	});
 
-  jQuery("input#prev-right").click(function() {
-    jQuery(".right-drop").prepend(jQuery(".right-drop li:last-child"));
-  });
+	jQuery("input#prev-right").click(function() {
+		jQuery(".right-drop").prepend(jQuery(".right-drop li:last-child"));
+	});
 
-  jQuery("li").click(function(){ 
-    jQuery(this).siblings().removeClass("selected");
-    jQuery(this).addClass("selected");
-    tabs.tabs( "refresh" );
-  });
+	jQuery("li").click(function(){ 
+		jQuery(this).siblings().removeClass("selected");
+		jQuery(this).addClass("selected");
+		tabs.tabs( "refresh" );
+	});
 
 
   // resizable panels
@@ -66,30 +66,30 @@ $(function() {
   // make tabs draggable
   tabs.find(".ui-tabs-nav li").draggable({
     handle: "a",
-    stack: "div",
-    opacity: 0.8,
-    revert: true, 
-    start: function( event, ui ) {
+  	stack: "div",
+  	opacity: 0.8,
+  	revert: true, 
+  	start: function( event, ui ) {
 
-      var draggableIdParentClassName = $(this).parent();
-      if(draggableIdParentClassName.hasClass('left-drop')) {
-        $('.ui-layout-west').css({"z-index":"1000"});
-        $('.ui-layout-east').css({"z-index":"99"});
-      } else if (draggableIdParentClassName.hasClass('right-drop')) {
-        $('.ui-layout-east').css({"z-index":"1000"});
-        $('.ui-layout-west').css({"z-index":"99"});
-      };
-      tabs.find(".ui-tabs-nav li").draggable({ revert: false });
-    },
-    stop: function() {
+  		var draggableIdParentClassName = $(this).parent();
+  		if(draggableIdParentClassName.hasClass('left-drop')) {
+  			$('.ui-layout-west').css({"z-index":"1000"});
+  			$('.ui-layout-east').css({"z-index":"99"});
+  		} else if (draggableIdParentClassName.hasClass('right-drop')) {
+  			$('.ui-layout-east').css({"z-index":"1000"});
+  			$('.ui-layout-west').css({"z-index":"99"});
+  		};
+  		tabs.find(".ui-tabs-nav li").draggable({ revert: false });
+  	},
+  	stop: function() {
   
-      tabs.find( ".ui-tabs-nav" ).sortable({
-        stop: function() {
-          tabs.tabs( "refresh" );
-        }
-      });
+  		tabs.find( ".ui-tabs-nav" ).sortable({
+  			stop: function() {
+  				tabs.tabs( "refresh" );
+  			}
+  		});
 
-    }
+  	}
   });
 
 

@@ -74,6 +74,7 @@ li {
 .ui-tabs-nav li {
 	text-align: center;
 	width: 3em;
+	margin-right:-2px;
 	height: 100%;
 	background: #FFF;
 	
