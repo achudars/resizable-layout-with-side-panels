@@ -64,7 +64,6 @@ body {
 	top: 3em;
 	left: 0;
 	right: 0;
-	border: 3px solid purple;
 }
 li {
 	border: none !important;
@@ -78,10 +77,9 @@ li {
 	height: 3em;
 	/*overflow: hidden;*/
 	display: inline-block;
-	border: 2px solid teal;
 	text-align: left;
 	position: absolute;
-	left: 3em;
+	left: 3.3em;
 	right: 3em;
 }
 .ui-tabs-nav li {
@@ -108,6 +106,7 @@ li {
 /* STYLE THIS TO CHANGE THE HANDLE */
 .ui-layout-toggler {
 	background-color: white;
+	left: 9px !important;
 }
 .left-toggler {
 	background: red;
