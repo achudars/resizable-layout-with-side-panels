@@ -62,12 +62,13 @@ $(function() {
   // tabs
   var tabs = $( ".tabs" ).tabs();
   var center = $( "#outer-container .ui-layout-center" );
+
   // make tabs draggable
   tabs.find(".ui-tabs-nav li").draggable({
     handle: "a",
   	stack: "div",
   	opacity: 0.8,
-  	revert: false, 
+  	revert: true, 
   	start: function( event, ui ) {
   		var draggableIdParentClassName = $(this).parent();
   		if(draggableIdParentClassName.hasClass('left-drop')) {
@@ -92,7 +93,6 @@ $(function() {
 
 
   tabs.find(".ui-tabs-nav").droppable({
-  	hoverClass: "ui-state-active",
   	drop: function( event, ui ) {
   		var draggableId = ui.draggable.find('a').attr('href');
 			// append the icon/tab
@@ -101,29 +101,29 @@ $(function() {
 			$(this).parent().parent().append($(draggableId));
 			$(ui.draggable).css({"top":"0","left":"0"});
 			$(draggableId).removeClass('dragged-out-content');
+			/* this is important, because it updates which tab is active and which content to show */
 			tabs.tabs( "refresh" );
 		}
 });
 
-/*  center.droppable({
-  	hoverClass: "ui-state-active",
-  	over: function ( event, ui ) {
-		// this is important logic
-		tabs.find(".ui-tabs-nav li").draggable({ revert: false });
-	},
+  center.droppable({
 	drop: function ( event, ui ) {
 		var draggableId = ui.draggable.find('a').attr('href');
 		// append the icon/tab to the body
-		$("body").append(ui.draggable);
+		$("#outer-container").append(ui.draggable);
 		// append the content of the icon to the body
 		//$("body").append($(draggableId));
-
+		if(ui.position.left<0){
+			$(ui.draggable).css({"left": ((-1)*ui.position.left) });
+		}
+		
 		$(draggableId).draggable({ handle: ui.draggable });
 		$(draggableId).appendTo(ui.draggable).addClass('dragged-out-content');
 		
 		
+		
 	}
-});*/
+});
 
 
 
