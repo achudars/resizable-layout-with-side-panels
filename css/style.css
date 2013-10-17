@@ -1,12 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 
-
-/* apply a natural box layout model to all elements */
-*, *:before, *:after {
-	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-	border-radius: 0px !important;
-}
-
 body {
 	color: #FFF;
 	background: #262e37;
@@ -45,7 +38,7 @@ body {
 }
 
 .pane {
-	border: 5px solid #191D24;
+	border: 1px solid #191D24;
 	background: #D8D4C6;
 }
 .tabs {
@@ -73,23 +66,26 @@ li {
 	margin-right: 3em;
 	border: 2px dashed blue;
 	height: 3em;
-
+	white-space: nowrap;
 }
 .ui-tabs-nav li {
 	text-align: center;
 	width: 3em;
+	margin-right:-2px;
 	height: 100%;
 	background: #FFF;
+	
 	display: inline-block;
+
 	text-decoration: none;
 	line-height: 3em;
+	padding: 3px;
 }
 
 .ui-tabs .ui-tabs-nav li.ui-tabs-active, .ui-tabs .ui-tabs-nav li {
 	margin: 0;
 	padding: 0;
 	outline: none;
-	margin-right: -4px;
 }
 .ui-corner-top {
 	width: 3em;
@@ -101,7 +97,7 @@ li {
 
 }
 .ui-tabs-anchor {
-
+border: 1px solid black;
 	width: 100%;
 	height: 100%;
 	background: yellow;
