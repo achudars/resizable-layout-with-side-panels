@@ -86,8 +86,12 @@ $(function() {
       tabs.find( ".ui-tabs-nav" ).sortable({
         stop: function() {
           tabs.tabs( "refresh" );
+          
         }
       });
+
+      howManyTabs(".ui-layout-west");
+      howManyTabs(".ui-layout-east");
 
     }
   });
@@ -105,6 +109,7 @@ $(function() {
       $(draggableId).removeClass('dragged-out-content');
       /* this is important, because it updates which tab is active and which content to show */
       tabs.tabs( "refresh" );
+
     }
 });
 
@@ -128,5 +133,13 @@ $(function() {
 });
 
 
+  var howManyTabs = function(panel){
+      var amountOfTabs = $(panel + " li").length;
+      if ( amountOfTabs < 1 ) {
+        container.close( panel.substring(11,15) );
+      }
+  }
+
+          
 
 });
