@@ -1,111 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-	<title>Layout and Panels</title>
-	<!-- Latest compiled and minified CSS -->
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Layout and Panels</title>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h4>
+      Drag a tab from left to right and vice versa, or drag out to the middle.
+      Open/close panels.
+    </h4>
+    <div id="outer-container">
+      <div class="ui-layout-west pane">
+        <div class="tabs">
+          <div class="tab-section">
+            <input type="button" id="prev-left" value="<" />
+            <ul class="left-drop">
+              <li><a href="#tabs-1">A</a></li>
+              <li><a href="#tabs-2">B</a></li>
+              <li><a href="#tabs-3">C</a></li>
+            </ul>
+            <input type="button" id="next-left" value=">" />
+          </div>
 
-	<link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-	<h4>Drag a tab from left to right and vice versa, or drag out to the middle. Open/close panels.</h4>
-	<div id="outer-container">
+          <div id="tabs-1">
+            <p>Content for A</p>
+            <input type="checkbox" id="left-pin" />
+          </div>
+          <div id="tabs-2">
+            <p>Content for B</p>
+          </div>
+          <div id="tabs-3">
+            <p>Content for C</p>
+          </div>
+        </div>
+      </div>
 
-		<div class="ui-layout-west pane">
-			<div class="tabs">
-				<div class="tab-section">
-					<input type="button" id="prev-left" value="<" />
-					<ul class="left-drop">
-					
-						<li><a href="#tabs-1">A</a></li>
-						<li><a href="#tabs-2">B</a></li>
-						<li><a href="#tabs-3">C</a></li>
-						
-					</ul>
-					<input type="button" id="next-left" value=">" />
-				</div>
+      <div class="ui-layout-center pane">
+        <div id="middle-container">
+          <div class="ui-layout-north pane top-panel">
+            <div id="top-container">
+              <div class="ui-layout-center pane">LEFT</div>
+              <div class="ui-layout-east pane">RIGHT</div>
+            </div>
+          </div>
 
-				<div id="tabs-1">
-					<p>Content for A</p>
-					<input type="checkbox" id="left-pin" />
-				</div>
-				<div id="tabs-2">
-					<p>Content for B</p>
-				</div>
-				<div id="tabs-3">
-					<p>Content for C</p>
-				</div>
-			</div>
-		</div>
+          <div class="ui-layout-center pane bottom-panel">
+            <div id="bottom-container">
+              BOTTOM
+              <div class="ui-layout-center pane">LEFT</div>
+              <div class="ui-layout-east pane">RIGHT</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-		<div class="ui-layout-center pane">
+      <div class="ui-layout-east pane">
+        <div class="tabs">
+          <div class="tab-section">
+            <input type="button" id="prev-right" value="<" />
+            <ul class="right-drop">
+              <li><a href="#tabs-4">D</a></li>
+              <li><a href="#tabs-5">E</a></li>
+              <li><a href="#tabs-6">F</a></li>
+              <li><a href="#tabs-7">G</a></li>
+              <li><a href="#tabs-8">H</a></li>
+            </ul>
+            <input type="button" id="next-right" value=">" />
+          </div>
+          <div id="tabs-4">
+            <p>Content for D</p>
+          </div>
+          <div id="tabs-5">
+            <p>Content for E</p>
+          </div>
+          <div id="tabs-6">
+            <p>Content for F</p>
+          </div>
+          <div id="tabs-7">
+            <p>Content for G</p>
+          </div>
+          <div id="tabs-8">
+            <p>Content for H</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-			<div id="middle-container">
-
-				<div class="ui-layout-north pane top-panel">
-
-					<div id="top-container">
-						<div class="ui-layout-center pane">LEFT</div>
-						<div class="ui-layout-east pane">RIGHT</div>
-					</div>
-
-				</div>
-
-				<div class="ui-layout-center pane bottom-panel">
-
-					<div id="bottom-container">BOTTOM
-						<div class="ui-layout-center pane">LEFT</div>
-						<div class="ui-layout-east pane">RIGHT</div>
-					</div>
-
-				</div>
-
-
-			</div>
-
-		</div>
-
-		<div class="ui-layout-east pane">
-			<div class="tabs">
-			<div class="tab-section">
-					<input type="button" id="prev-right" value="<" />
-						<ul class="right-drop">
-
-							<li><a href="#tabs-4">D</a></li>
-							<li><a href="#tabs-5">E</a></li>
-							<li><a href="#tabs-6">F</a></li>
-							<li><a href="#tabs-7">G</a></li>
-							<li><a href="#tabs-8">H</a></li>
-
-						</ul>
-						<input type="button" id="next-right" value=">" />
-				</div>
-				<div id="tabs-4">
-					<p>Content for D</p>
-				</div>
-				<div id="tabs-5">
-					<p>Content for E</p>
-				</div>
-				<div id="tabs-6">
-					<p>Content for F</p>
-				</div>
-				<div id="tabs-7">
-					<p>Content for G</p>
-				</div>
-				<div id="tabs-8">
-					<p>Content for H</p>
-				</div>
-			</div>
-		</div>
-
-	</div>
-
-
-	<script src="//codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-	<script src="js/jquery.layout-latest.min.js"></script>
-	<script src="js/script.js"></script>
-</body>
+    <script src="//codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="js/jquery.layout-latest.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
 </html>
