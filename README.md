@@ -1,6 +1,8 @@
 Complex layout using jQuery UI Layout Plug-in, jQuery UI and a bit of Magic
 ===========================================================================
 
+![https://i.imgur.com/KRwcO16.png](https://i.imgur.com/KRwcO16.png)
+
 Features
 --------
 
